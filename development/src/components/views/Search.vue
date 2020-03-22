@@ -1,12 +1,10 @@
 <template>
-    <header>
-        <h1>List</h1>
-    </header>
+
 </template>
 
 <script>
     export default {
-        name: "Header"
+        name: "Search"
     }
 </script>
 

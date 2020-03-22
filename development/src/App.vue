@@ -1,21 +1,25 @@
 <template>
   <div id="wrapper">
     <div id="app">
+      <div id="feature-container">
         <div class="grid">
           <img id="feature" src="./assets/main_feature.png">
           <img id="logo" src="./assets/logo.png">
           <nav>
             <ul>
               <li><router-link to="/">Home</router-link></li>
+              <li><router-link to="/search">Search</router-link></li>
               <li><router-link to="/about">About</router-link></li>
             </ul>
           </nav>
         </div>
+      </div>
       <router-view />
       <div id="bottom">
         <h1>Follow us on Social Media</h1>
         <ul>
           <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/search">Search</router-link></li>
           <li><router-link to="/about">About</router-link></li>
         </ul>
       </div>
@@ -36,46 +40,62 @@
     color: black;
   }
 
+  img{
+    height: 100%;
+    width: 100%;
+  }
+
+  #feature-container{
+    max-height: fit-content;
+    max-width: 1140px;
+  }
+
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    /*text-align: center;*/
     color: #2c3e50;
-    z-index: 0;
+    overflow: hidden;
   }
 
   #feature{
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: -1;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*text-align: center;*/
+    z-index: 0;
   }
 
   #wrapper{
-    width: 1140px;
+    width: 100%;
+    max-width: 1140px;
     margin: 0 auto;
   }
 
   #logo{
     float: left;
     flex: none;
-    margin: 1% 0 0 1%;
+    margin: 3% 0 0 3%;
+    z-index: 1;
+    clear-after: both;
+    width: 22%;
+    height: 16%;
   }
 
   nav{
-    float: left;
-    margin: 1% 0 0 89%;
+    z-index: 1;
+    clear-after: both;
   }
 
   nav ul{
+    float: right;
     list-style-type: none;
-    margin: 0;
+    margin: 9% 3% 0 0;
     padding: 0px;
-    width: 25%;
     height: 100%;
+    z-index: 1;
   }
 
   nav li{
@@ -94,7 +114,9 @@
   }
 
   #bottom{
+    margin-top: 20px;
     background-color: gray;
+    overflow: hidden;
   }
 
   #bottom h1{
@@ -110,5 +132,33 @@
     width: 25%;
     height: 100%;
   }
+
+  .columnLarge{
+    float: left;
+    width: 60%;
+  }
+
+  .columnSmall{
+    float: left;
+    width: 30%;
+  }
+
+  .columnLarge:last-child{
+    margin-left: 9%;
+  }
+
+  .columnSmall:last-child{
+    margin-left: 9%;
+  }
+
+  .row{
+    margin-top: 20px;
+  }
+  .row:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+
 
 </style>
