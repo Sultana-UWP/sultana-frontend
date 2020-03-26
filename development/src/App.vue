@@ -14,7 +14,9 @@
           </nav>
         </div>
       </div>
-      <router-view />
+      <div id="content-container">
+        <router-view />
+      </div>
       <div id="bottom">
         <h1>Follow us on Social Media</h1>
         <ul>
@@ -54,17 +56,17 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*text-align: center;*/
     color: #2c3e50;
     overflow: hidden;
+  }
+
+  #content-container{
+    padding: 20px;
   }
 
   #feature{
     display: flex;
     flex-flow: row nowrap;
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*text-align: center;*/
     z-index: 0;
   }
 
@@ -149,6 +151,29 @@
 
   .columnSmall:last-child{
     margin-left: 9%;
+  }
+
+  @media screen and (max-width: 800px){
+    .columnLarge, .columnSmall{
+      width: 100%;
+      margin: 0;
+    }
+
+    .columnLarge:last-child, .columnSmall:last-child{
+      margin-left: 0;
+    }
+
+    .mobile-view{
+      display: block;
+    }
+
+    .desktop-view{
+      display: none;
+    }
+
+    #content-container{
+      padding: 0;
+    }
   }
 
   .row{
