@@ -176,6 +176,17 @@
     }
   }
 
+  @media screen and (min-width: 800px) {
+
+    .mobile-view{
+      display: none;
+    }
+
+    .desktop-view{
+      display: block;
+    }
+
+  }
   .row{
     margin-top: 20px;
   }
