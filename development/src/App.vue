@@ -6,12 +6,29 @@
           <img id="feature" src="./assets/main_feature.png">
           <img id="logo" src="./assets/logo.png">
           <nav>
-            <ul>
+            <div class="desktop-view">
+              <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/search">Search</router-link></li>
+                <li><router-link to="/about">About</router-link></li>
+              </ul>
+            </div>
+            <div class="mobile-view">
+              <div id="burger">
+                <Burger></Burger>
+              </div>
+            </div>
+          </nav>
+          <MobileNav>
+            <div id="close">
+              <Burger></Burger>
+            </div>
+            <ul class="mobile-menu" @click.prevent="toggle">
               <li><router-link to="/">Home</router-link></li>
               <li><router-link to="/search">Search</router-link></li>
               <li><router-link to="/about">About</router-link></li>
             </ul>
-          </nav>
+          </MobileNav>
         </div>
       </div>
       <div id="content-container">
@@ -30,8 +47,22 @@
 </template>
 
 <script>
-  export default {
 
+  import Burger from './components/Burger.vue';
+  import MobileNav from './components/MobileNav.vue';
+  import { mutations } from '@/store.js';
+
+  export default {
+    name: 'app',
+    components: {
+      Burger,
+      MobileNav
+    },
+    methods: {
+      toggle() {
+        mutations.toggleNav()
+      }
+    }
   }
 </script>
 
@@ -89,6 +120,18 @@
   nav{
     z-index: 1;
     clear-after: both;
+  }
+
+  #burger, #close{
+    float: right;
+    margin-right: 3%;
+    clear-after: both;
+  }
+
+  #close{
+    margin-left: 90%;
+    margin-bottom: 60px;
+    float: none;
   }
 
   nav ul{
@@ -196,5 +239,22 @@
     clear: both;
   }
 
+  ul.mobile-menu {
+    list-style-type: none;
+  }
+
+  ul.mobile-menu > li > a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: block;
+    margin: 15px 0;
+    padding: 15px 0;
+  }
+
+  /*ul.mobile-menu .burger{*/
+  /*  float: none;*/
+  /*  margin-left: 80%;*/
+  /*}*/
 
 </style>
