@@ -3,8 +3,13 @@
     <div id="app">
       <div id="feature-container">
         <div class="grid">
-          <img id="feature" src="./assets/main_feature.png">
-          <img id="logo" src="./assets/logo.png">
+          <img id="feature" alt="Sultana Mural" src="./assets/main_feature.png">
+          <div id="logo">
+            <router-link to="/">
+              <img alt="Sultana Logo" src="./assets/logo.png">
+            </router-link>
+          </div>
+
           <nav>
             <div class="desktop-view">
               <ul>
@@ -23,6 +28,7 @@
             <div id="close">
               <Burger></Burger>
             </div>
+
             <ul class="mobile-menu" @click.prevent="toggle">
               <li><router-link to="/">Home</router-link></li>
               <li><router-link to="/search">Search</router-link></li>
@@ -35,7 +41,9 @@
         <router-view />
       </div>
       <div id="bottom">
-        <h1>Follow us on Social Media</h1>
+        <a href="https://www.facebook.com/sultanadisastermuseummarion/">
+          <img id="fb" alt="Facebook" src="./assets/fb.svg">
+        </a>
         <ul>
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/search">Search</router-link></li>
@@ -68,9 +76,18 @@
 
 <style>
 
+  @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Open+Sans&display=swap');
+
+
+
   a{
     text-decoration: none;
-    color: black;
+    /*color: rgb(194,172,181);*/
+    color: rgb(229,220,223);
+  }
+
+  h1, h2, h3, li a{
+    font-family: "Francois One", Arial, sans-serif;
   }
 
   img{
@@ -79,16 +96,20 @@
   }
 
   #feature-container{
-    max-height: fit-content;
+    max-height: 821px;
     max-width: 1140px;
   }
 
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     overflow: hidden;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    background-color: white;
   }
 
   #content-container{
@@ -102,19 +123,41 @@
   }
 
   #wrapper{
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
+    /*background-color: rgb(41,53,69);*/
+    background-color: rgb(40, 51, 67);
+  }
+
+  .grid{
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-columns: auto;
+    /*grid-template-rows: 821px;*/
+    grid-template-rows: auto;
+  }
+
+  .grid > *{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    height: auto;
   }
 
   #logo{
     float: left;
     flex: none;
     margin: 3% 0 0 3%;
-    z-index: 1;
+    z-index: 2;
     clear-after: both;
     width: 22%;
-    height: 16%;
+    height: 20%;
+  }
+
+
+
+  #fb{
+    margin: 20px 0 0 20px;
+    height: 25%;
+    width: 25%;
   }
 
   nav{
@@ -148,20 +191,18 @@
     display: inline;
   }
 
-  .grid{
-    display: grid;
-    grid-template-columns: 1fr;
-  }
 
-  .grid img, .grid nav{
-    grid-row-start: 1;
-    grid-column-start: 1;
-  }
 
   #bottom{
     margin-top: 20px;
-    background-color: gray;
+    /*background-color: rgb(41,53,69);*/
+    background-color: rgb(40, 51, 67);
     overflow: hidden;
+  }
+
+  #bottom h1, #bottom a{
+    /*color: rgb(194,172,181);*/
+    color: rgb(229,220,223);
   }
 
   #bottom h1{
@@ -216,6 +257,11 @@
 
     #content-container{
       padding: 0;
+    }
+
+    #fb{
+      width: 100%;
+      height: auto;
     }
   }
 
