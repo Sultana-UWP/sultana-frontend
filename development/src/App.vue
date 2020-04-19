@@ -12,9 +12,11 @@
 
           <v-toolbar id="nav">
             <v-container class="desktop-view">
-              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
-              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
-              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+              <v-container id="nav-buttons">
+                <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
+                <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
+                <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+              </v-container>
             </v-container>
             <v-container class="mobile-view">
               <v-container id="burger">
@@ -40,13 +42,15 @@
       </v-container>
       <v-container id="bottom">
         <a href="https://www.facebook.com/sultanadisastermuseummarion/">
-          <img id="fb" alt="Facebook" src="./assets/fb.svg">
+          <v-container id="fb">
+            <img alt="Facebook" src="./assets/fb.svg">
+          </v-container>
         </a>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/search">Search</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
-        </ul>
+        <v-container id="bottom-buttons">
+          <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
+          <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
+          <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+        </v-container>
       </v-container>
     </v-app>
   </v-container>
@@ -84,8 +88,17 @@
     color: rgb(229,220,223) !important;
   }
 
-  h1, h2, h3, #nav a{
+  #nav-buttons > *{
+    font-size: 24px;
+    margin: 0 10px;
+  }
+
+  h1, h2, h3, a{
     font-family: "Francois One", Arial, sans-serif;
+  }
+
+  h1{
+    font-size: 42px;
   }
 
   img{
@@ -108,6 +121,7 @@
     max-width: 1140px;
     margin: 0 auto;
     background-color: white;
+    font-size: 18px;
   }
 
   #content-container{
@@ -150,14 +164,6 @@
     height: 20%;
   }
 
-
-
-  #fb{
-    margin: 20px 0 0 20px;
-    height: 25%;
-    width: 25%;
-  }
-
   #nav{
     z-index: 1;
     clear-after: both;
@@ -195,28 +201,34 @@
 
   #bottom{
     margin-top: 20px;
+    padding-top: 40px;
     /*background-color: rgb(41,53,69);*/
     background-color: rgb(40, 51, 67);
     overflow: hidden;
   }
 
-  #bottom h1, #bottom a{
-    /*color: rgb(194,172,181);*/
+  #bottom a{
     color: rgb(229,220,223);
+    font-size: 24px;
   }
 
-  #bottom h1{
+  #fb{
+    margin: 0 0 0 20px;
+    height: 23%;
+    width: 23%;
+    padding: 1%;
+    background-color: white;
+    border-radius: 15px;
     float: left;
-    margin-left: 1%;
   }
 
-  #bottom ul{
-    float: left;
-    margin-left: 85%;
-    list-style-type: none;
-    padding: 0px;
-    width: 25%;
-    height: 100%;
+  #bottom-buttons{
+    float: right;
+    width: 72%;
+  }
+
+  #bottom-buttons > *{
+    width: 33.33%;
   }
 
   .columnLarge{
@@ -259,9 +271,11 @@
       padding: 0;
     }
 
-    #fb{
+    #fb, #bottom-buttons, #bottom-buttons > *{
       width: 100%;
       height: auto;
+      min-height: 60px;
+      margin: 15px 0;
     }
   }
 
