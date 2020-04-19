@@ -50,7 +50,8 @@
 
     .mobile-nav {
         overflow-y: auto;
-        background-color: gray;
+        /*background-color: rgb(41,53,69);*/
+        background-color: rgb(40, 51, 67);
         position: fixed;
         top: 0;
         left: 50%;

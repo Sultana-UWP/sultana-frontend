@@ -1,49 +1,55 @@
 <template>
-  <div id="wrapper">
-    <div id="app">
-      <div id="feature-container">
-        <div class="grid">
-          <img id="feature" src="./assets/main_feature.png">
-          <img id="logo" src="./assets/logo.png">
-          <nav>
-            <div class="desktop-view">
-              <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/search">Search</router-link></li>
-                <li><router-link to="/about">About</router-link></li>
-              </ul>
-            </div>
-            <div class="mobile-view">
-              <div id="burger">
+  <v-container id="wrapper">
+    <v-app id="app">
+      <v-container id="feature-container">
+        <v-container class="grid">
+          <img id="feature" alt="Sultana Mural" src="./assets/main_feature.png">
+          <v-container id="logo">
+            <router-link to="/">
+              <img alt="Sultana Logo" src="./assets/logo.png">
+            </router-link>
+          </v-container>
+
+          <v-toolbar id="nav">
+            <v-container class="desktop-view">
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+            </v-container>
+            <v-container class="mobile-view">
+              <v-container id="burger">
                 <Burger></Burger>
-              </div>
-            </div>
-          </nav>
+              </v-container>
+            </v-container>
+          </v-toolbar>
           <MobileNav>
-            <div id="close">
+            <v-container id="close">
               <Burger></Burger>
-            </div>
-            <ul class="mobile-menu" @click.prevent="toggle">
-              <li><router-link to="/">Home</router-link></li>
-              <li><router-link to="/search">Search</router-link></li>
-              <li><router-link to="/about">About</router-link></li>
-            </ul>
+            </v-container>
+
+            <v-list class="mobile-menu" @click.prevent="toggle">
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+            </v-list>
           </MobileNav>
-        </div>
-      </div>
-      <div id="content-container">
+        </v-container>
+      </v-container>
+      <v-container id="content-container">
         <router-view />
-      </div>
-      <div id="bottom">
-        <h1>Follow us on Social Media</h1>
+      </v-container>
+      <v-container id="bottom">
+        <a href="https://www.facebook.com/sultanadisastermuseummarion/">
+          <img id="fb" alt="Facebook" src="./assets/fb.svg">
+        </a>
         <ul>
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/search">Search</router-link></li>
           <li><router-link to="/about">About</router-link></li>
         </ul>
-      </div>
-    </div>
-  </div>
+      </v-container>
+    </v-app>
+  </v-container>
 </template>
 
 <script>
@@ -68,9 +74,18 @@
 
 <style>
 
+  @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Open+Sans&display=swap');
+
+
+
   a{
     text-decoration: none;
-    color: black;
+    /*color: rgb(194,172,181);*/
+    color: rgb(229,220,223) !important;
+  }
+
+  h1, h2, h3, #nav a{
+    font-family: "Francois One", Arial, sans-serif;
   }
 
   img{
@@ -79,16 +94,20 @@
   }
 
   #feature-container{
-    max-height: fit-content;
+    max-height: 821px;
     max-width: 1140px;
   }
 
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     overflow: hidden;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    background-color: white;
   }
 
   #content-container{
@@ -101,23 +120,45 @@
     z-index: 0;
   }
 
-  #wrapper{
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
+  #wrapper {
+    /*background-color: rgb(41,53,69);*/
+    background-color: rgb(40, 51, 67) !important;
+  }
+
+  .grid{
+    display: grid;
+    height: auto;
+    width: auto;
+    grid-template-columns: auto;
+    /*grid-template-rows: 821px;*/
+    grid-template-rows: auto;
+  }
+
+  .grid > *{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    height: auto;
   }
 
   #logo{
     float: left;
     flex: none;
     margin: 3% 0 0 3%;
-    z-index: 1;
+    z-index: 2;
     clear-after: both;
     width: 22%;
-    height: 16%;
+    height: 20%;
   }
 
-  nav{
+
+
+  #fb{
+    margin: 20px 0 0 20px;
+    height: 25%;
+    width: 25%;
+  }
+
+  #nav{
     z-index: 1;
     clear-after: both;
   }
@@ -134,7 +175,7 @@
     float: none;
   }
 
-  nav ul{
+  #nav > *{
     float: right;
     list-style-type: none;
     margin: 9% 3% 0 0;
@@ -148,20 +189,20 @@
     display: inline;
   }
 
-  .grid{
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .grid img, .grid nav{
-    grid-row-start: 1;
-    grid-column-start: 1;
-  }
+  /*.navbtn{*/
+  /*  background-color: rgba(0,0,0,0) !important;*/
+  /*}*/
 
   #bottom{
     margin-top: 20px;
-    background-color: gray;
+    /*background-color: rgb(41,53,69);*/
+    background-color: rgb(40, 51, 67);
     overflow: hidden;
+  }
+
+  #bottom h1, #bottom a{
+    /*color: rgb(194,172,181);*/
+    color: rgb(229,220,223);
   }
 
   #bottom h1{
@@ -217,6 +258,11 @@
     #content-container{
       padding: 0;
     }
+
+    #fb{
+      width: 100%;
+      height: auto;
+    }
   }
 
   @media screen and (min-width: 800px) {
@@ -239,11 +285,12 @@
     clear: both;
   }
 
-  ul.mobile-menu {
+  .mobile-menu {
     list-style-type: none;
+    margin-left: 25px;
   }
 
-  ul.mobile-menu > li > a{
+  .mobile-menu > *{
     color: #fff;
     text-decoration: none;
     font-size: 1.5rem;
