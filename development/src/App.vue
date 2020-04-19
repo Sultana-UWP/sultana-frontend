@@ -1,46 +1,44 @@
 <template>
-  <div id="wrapper">
-    <div id="app">
-      <div id="feature-container">
-        <div class="grid">
+  <v-container id="wrapper">
+    <v-app id="app">
+      <v-container id="feature-container">
+        <v-container class="grid">
           <img id="feature" alt="Sultana Mural" src="./assets/main_feature.png">
-          <div id="logo">
+          <v-container id="logo">
             <router-link to="/">
               <img alt="Sultana Logo" src="./assets/logo.png">
             </router-link>
-          </div>
+          </v-container>
 
-          <nav>
-            <div class="desktop-view">
-              <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/search">Search</router-link></li>
-                <li><router-link to="/about">About</router-link></li>
-              </ul>
-            </div>
-            <div class="mobile-view">
-              <div id="burger">
+          <v-toolbar id="nav">
+            <v-container class="desktop-view">
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+            </v-container>
+            <v-container class="mobile-view">
+              <v-container id="burger">
                 <Burger></Burger>
-              </div>
-            </div>
-          </nav>
+              </v-container>
+            </v-container>
+          </v-toolbar>
           <MobileNav>
-            <div id="close">
+            <v-container id="close">
               <Burger></Burger>
-            </div>
+            </v-container>
 
-            <ul class="mobile-menu" @click.prevent="toggle">
-              <li><router-link to="/">Home</router-link></li>
-              <li><router-link to="/search">Search</router-link></li>
-              <li><router-link to="/about">About</router-link></li>
-            </ul>
+            <v-list class="mobile-menu" @click.prevent="toggle">
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
+              <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+            </v-list>
           </MobileNav>
-        </div>
-      </div>
-      <div id="content-container">
+        </v-container>
+      </v-container>
+      <v-container id="content-container">
         <router-view />
-      </div>
-      <div id="bottom">
+      </v-container>
+      <v-container id="bottom">
         <a href="https://www.facebook.com/sultanadisastermuseummarion/">
           <img id="fb" alt="Facebook" src="./assets/fb.svg">
         </a>
@@ -49,9 +47,9 @@
           <li><router-link to="/search">Search</router-link></li>
           <li><router-link to="/about">About</router-link></li>
         </ul>
-      </div>
-    </div>
-  </div>
+      </v-container>
+    </v-app>
+  </v-container>
 </template>
 
 <script>
@@ -83,10 +81,10 @@
   a{
     text-decoration: none;
     /*color: rgb(194,172,181);*/
-    color: rgb(229,220,223);
+    color: rgb(229,220,223) !important;
   }
 
-  h1, h2, h3, li a{
+  h1, h2, h3, #nav a{
     font-family: "Francois One", Arial, sans-serif;
   }
 
@@ -122,9 +120,9 @@
     z-index: 0;
   }
 
-  #wrapper{
+  #wrapper {
     /*background-color: rgb(41,53,69);*/
-    background-color: rgb(40, 51, 67);
+    background-color: rgb(40, 51, 67) !important;
   }
 
   .grid{
@@ -160,7 +158,7 @@
     width: 25%;
   }
 
-  nav{
+  #nav{
     z-index: 1;
     clear-after: both;
   }
@@ -177,7 +175,7 @@
     float: none;
   }
 
-  nav ul{
+  #nav > *{
     float: right;
     list-style-type: none;
     margin: 9% 3% 0 0;
@@ -191,7 +189,9 @@
     display: inline;
   }
 
-
+  /*.navbtn{*/
+  /*  background-color: rgba(0,0,0,0) !important;*/
+  /*}*/
 
   #bottom{
     margin-top: 20px;
@@ -285,11 +285,12 @@
     clear: both;
   }
 
-  ul.mobile-menu {
+  .mobile-menu {
     list-style-type: none;
+    margin-left: 25px;
   }
 
-  ul.mobile-menu > li > a{
+  .mobile-menu > *{
     color: #fff;
     text-decoration: none;
     font-size: 1.5rem;

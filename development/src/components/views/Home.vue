@@ -1,22 +1,25 @@
 <template>
-    <div class="home">
+    <v-container class="home">
 
-        <div class="row">
-            <div class="columnLarge">
+        <v-container class="row">
+            <v-container class="columnLarge">
                 <h1>Our Museum</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="columnSmall">
+            </v-container>
+            <v-container class="columnSmall">
                 <h1>Our Location</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+            </v-container>
+        </v-container>
 
-        <div id="searchContainer">
-            <router-link to="/search"><h1>Search our Victim Registry</h1></router-link>
-        </div>
+        <v-container class="grid">
+            <router-link id="search" to="/search"><h1>Search our Victim Registry</h1></router-link>
+            <v-container id="search_container">
+                <img src="../../assets/search_btn.png">
+            </v-container>
+        </v-container>
 
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -28,10 +31,20 @@
 
 <style scoped>
 
-    #searchContainer{
-        padding: 50px 0;
-        background-color: gray;
+    #search{
+        z-index: 1;
         text-align: center;
+        margin: 5% 0;
+    }
+
+    #search_container{
+        max-width: 1140px;
+        max-height: 200px;
+        z-index: 0;
+    }
+
+    #search_container img{
+        z-index: 0;
     }
 
 </style>
