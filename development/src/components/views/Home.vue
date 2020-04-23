@@ -31,16 +31,21 @@
 
 <style scoped>
 
+    .home{
+        padding: 0;
+    }
+
     #search{
         z-index: 1;
         text-align: center;
-        margin: 5% 0;
+        margin: 4% 0;
     }
 
     #search_container{
-        max-width: 1140px;
+        max-width: 1100px;
         max-height: 200px;
         z-index: 0;
+        padding: 0;
     }
 
     #search_container img{

@@ -1,6 +1,6 @@
 <template>
-  <v-container id="wrapper">
-    <v-app id="app">
+  <v-app id="wrapper">
+    <v-container id="app">
       <v-container id="feature-container">
         <v-container class="grid">
           <img id="feature" alt="Sultana Mural" src="./assets/main_feature.png">
@@ -10,7 +10,7 @@
             </router-link>
           </v-container>
 
-          <v-toolbar id="nav">
+          <v-container id="nav">
             <v-container class="desktop-view">
               <v-container id="nav-buttons">
                 <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
@@ -23,7 +23,7 @@
                 <Burger></Burger>
               </v-container>
             </v-container>
-          </v-toolbar>
+          </v-container>
           <MobileNav>
             <v-container id="close">
               <Burger></Burger>
@@ -52,8 +52,8 @@
           <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
         </v-container>
       </v-container>
-    </v-app>
-  </v-container>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
@@ -91,6 +91,7 @@
   #nav-buttons > *{
     font-size: 24px;
     margin: 0 10px;
+    float: right;
   }
 
   h1, h2, h3, a{
@@ -109,6 +110,8 @@
   #feature-container{
     max-height: 821px;
     max-width: 1140px;
+    padding: 0;
+    margin: 0;
   }
 
   #app {
@@ -117,32 +120,41 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     overflow: hidden;
-    width: 100%;
+    /*width: 100%;*/
     max-width: 1140px;
-    margin: 0 auto;
+    /*margin: 0;*/
+    /*background-color: rgb(40, 51, 67);*/
     background-color: white;
+    padding: 0;
     font-size: 18px;
   }
 
   #content-container{
-    padding: 20px;
+    max-width: 1140px;
+    /*padding: 0;*/
+    padding: 0 20px 0 0;
   }
 
   #feature{
     display: flex;
     flex-flow: row nowrap;
     z-index: 0;
+    /*margin: 0;*/
   }
 
   #wrapper {
     /*background-color: rgb(41,53,69);*/
     background-color: rgb(40, 51, 67) !important;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
   }
 
   .grid{
     display: grid;
     height: auto;
-    width: auto;
+    width: 100%;
+    padding: 0;
     grid-template-columns: auto;
     /*grid-template-rows: 821px;*/
     grid-template-rows: auto;
@@ -159,24 +171,24 @@
     flex: none;
     margin: 3% 0 0 3%;
     z-index: 2;
-    clear-after: both;
+    /*clear-after: both;*/
     width: 22%;
     height: 20%;
   }
 
   #nav{
     z-index: 1;
-    clear-after: both;
+    /*clear-after: both;*/
   }
 
   #burger, #close{
     float: right;
     margin-right: 3%;
     clear-after: both;
+    padding: 0;
   }
 
   #close{
-    margin-left: 90%;
     margin-bottom: 60px;
     float: none;
   }
@@ -205,6 +217,8 @@
     /*background-color: rgb(41,53,69);*/
     background-color: rgb(40, 51, 67);
     overflow: hidden;
+    max-width: 1140px;
+    margin: 0;
   }
 
   #bottom a{
@@ -234,20 +248,23 @@
   .columnLarge{
     float: left;
     width: 60%;
+    padding: 0;
   }
 
   .columnSmall{
     float: left;
     width: 30%;
+    padding: 0;
   }
 
-  .columnLarge:last-child{
-    margin-left: 9%;
-  }
+  /*.columnLarge:last-child{*/
+  /*  margin-left: 8%;*/
+  /*  padding: 0;*/
+  /*}*/
 
-  .columnSmall:last-child{
-    margin-left: 9%;
-  }
+  /*.columnSmall:last-child{*/
+  /*  padding: 0;*/
+  /*}*/
 
   @media screen and (max-width: 800px){
     .columnLarge, .columnSmall{
@@ -292,6 +309,7 @@
   }
   .row{
     margin-top: 20px;
+    padding: 0;
   }
   .row:after{
     content: "";
@@ -300,17 +318,20 @@
   }
 
   .mobile-menu {
+    background-color: rgb(40, 51, 67) !important;
     list-style-type: none;
-    margin-left: 25px;
+    /*margin-left: 25px;*/
+    margin: 0 3%;
   }
 
   .mobile-menu > *{
-    color: #fff;
     text-decoration: none;
     font-size: 1.5rem;
     display: block;
     margin: 15px 0;
-    padding: 15px 0;
+    /*padding: 15px 0;*/
+    height: 60px !important;
+    width: 100%;
   }
 
   /*ul.mobile-menu .burger{*/

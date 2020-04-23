@@ -8,7 +8,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-Vue.use(Vuetify)
+Vue.use(Vuetify);
 
 const router = new VueRouter({routes});
 const vuetify = new Vuetify({
@@ -22,10 +22,10 @@ const vuetify = new Vuetify({
       },
     },
   },
-})
+});
 
 new Vue({
-  render: h => h(App),
   router,
-  vuetify
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
