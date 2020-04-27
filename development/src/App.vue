@@ -88,6 +88,10 @@
     color: rgb(229,220,223) !important;
   }
 
+  #nav-buttons{
+      margin: 12% 20px 0 0;
+  }
+
   #nav-buttons > *{
     font-size: 24px;
     margin: 0 10px;
@@ -294,6 +298,11 @@
       min-height: 60px;
       margin: 15px 0;
     }
+  }
+
+  .desktop-view{
+      margin: 0 !important;
+      padding: 0;
   }
 
   @media screen and (min-width: 800px) {

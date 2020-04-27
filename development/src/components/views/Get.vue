@@ -1,51 +1,68 @@
 <template>
-    <v-card class="ml-2 mr-2">
-        <v-card-title primary-title class="justify-center">
-            Multiple Search
-            <div class="flex-grow-1"/>
-            <v-text-field
-                    v-model="firstname"
-                    v-on:keyup.enter="searchFirstName"
-                    placeholder="First Name"
-                    single-line />
-            <v-text-field
-                    v-model="lastname"
-                    v-on:keyup.enter="searchLastName"
-                    placeholder="Last Name"
-                    single-line/>
-            <v-select
-                    @input="searchState"
-                    v-model="state"
-                    :items="stateSelect"
-                    placeholder="State"/>
-            <v-select
-                    @input="searchCompany"
-                    v-model="company"
-                    :items="companySelect"
-                    placeholder="Company"/>
-            <v-text-field
-                    v-model="unitnumber"
-                    v-on:keyup.enter="searchUnitNumber"
-                    placeholder="Unit Number"
-                    single-line/>
-            <v-select
-                    @input="searchPrison"
-                    v-model="prison"
-                    :items="prisonSelect"
-                    placeholder="Prison"/>
-        </v-card-title>
-        <v-data-table
-                :headers="headers"
-                :items="people"
-                :search="search"
-                :items-per-page="10"
-                class="elevation-1"
-                single-select
-                :must-sort="true"
-                sort-by="lastname"
-                :loading="loading"
-                loading-text="Loading... Please Wait"/>
-        <v-btn rounded color="primary" dark>Press to search</v-btn>
+    <v-card>
+<!--        <v-card-title primary-title class="justify-center">-->
+        <h1>Multiple Search</h1>
+<!--            <div class="flex-grow-1"/>-->
+            <v-container id="search-form">
+                <v-container id="fname">
+                    <v-text-field
+                            v-model="firstname"
+                            v-on:keyup.enter="searchFirstName"
+                            label="First Name"
+                            single-line />
+                </v-container>
+                <v-container id="lname">
+                    <v-text-field
+                            v-model="lastname"
+                            v-on:keyup.enter="searchLastName"
+                            label="Last Name"
+                            single-line/>
+                </v-container>
+                <v-container id="unit">
+                    <v-text-field
+                            v-model="unitnumber"
+                            v-on:keyup.enter="searchUnitNumber"
+                            label="Unit Number"
+                            single-line/>
+                </v-container>
+                <v-container id="state">
+                    <v-select
+                            @input="searchState"
+                            v-model="state"
+                            :items="stateSelect"
+                            placeholder="State"/>
+                </v-container>
+                <v-container id="company">
+                    <v-select
+                            @input="searchCompany"
+                            v-model="company"
+                            :items="companySelect"
+                            placeholder="Company"/>
+                </v-container>
+                <v-container id="prison">
+                    <v-select
+                            @input="searchPrison"
+                            v-model="prison"
+                            :items="prisonSelect"
+                            placeholder="Prison"/>
+                </v-container>
+            </v-container>
+<!--        </v-card-title>-->
+        <v-container id="data-table">
+            <v-data-table
+                    :headers="headers"
+                    :items="people"
+                    :search="search"
+                    :items-per-page="10"
+                    class="elevation-1"
+                    single-select
+                    :must-sort="true"
+                    sort-by="lastname"
+                    :loading="loading"
+                    loading-text="Loading... Please Wait"/>
+        </v-container>
+        <v-btn rounded color="rgb(40, 51, 67)" dark>Press to search</v-btn>
+
 
     </v-card>
 </template>
@@ -127,12 +144,12 @@
                 "N/A"
             ],
             headers: [
-                {
-                    text: 'Number',
-                    align: 'left',
-                    sortable: true,
-                    value: 'entrynum'
-                },
+                // {
+                //     text: 'Number',
+                //     align: 'left',
+                //     sortable: true,
+                //     value: 'entrynum'
+                // },
                 {
                     text: 'Fate',
                     align: 'left',
@@ -187,12 +204,12 @@
                     sortable: true,
                     value: 'prison'
                 },
-                {
-                    text: 'Comments',
-                    align: 'left',
-                    sortable: true,
-                    value: 'comments'
-                },
+                // {
+                //     text: 'Comments',
+                //     align: 'left',
+                //     sortable: true,
+                //     value: 'comments'
+                // },
             ],
         }),
 
@@ -254,7 +271,7 @@
                         this.loading = false
                     })
             },
-            searchUnitNumber: function () {
+            searchUnitNumber: function(){
                 this.people = [];
                 this.loading = true;
 
@@ -314,3 +331,56 @@
         }
     }
 </script>
+
+<style scoped>
+
+    #search-form{
+        width: 100%;
+        padding: 0;
+        margin: 0 20px;
+        height: 200px;
+    }
+
+    #search-form > *{
+        float: left;
+        padding: 0;
+    }
+
+    #fname{
+        width: 31%;
+    }
+
+    #lname{
+        margin-left: 2%;
+        width: 31%;
+    }
+
+    #unit{
+        margin-left: 2%;
+        width: 31%;
+        clear-after: both;
+    }
+
+    #state{
+        width: 42%;
+    }
+
+    #company{
+        margin-left: 2%;
+        width: 27%;
+    }
+
+    #prison{
+        margin-left: 2%;
+        width: 20%;
+    }
+
+    #data-table{
+        width: 100%;
+        padding: 0;
+    }
+    #data-table > *{
+        width: 100%;
+    }
+
+</style>
