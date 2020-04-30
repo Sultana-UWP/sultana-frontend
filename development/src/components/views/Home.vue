@@ -33,6 +33,8 @@
 
     .home{
         padding: 0;
+        margin: 0;
+        min-width: 100%;
     }
 
     #search{
@@ -42,10 +44,12 @@
     }
 
     #search_container{
+        display: block;
         max-width: 1100px;
         max-height: 200px;
         z-index: 0;
         padding: 0;
+        margin: 20px auto;
     }
 
     #search_container img{

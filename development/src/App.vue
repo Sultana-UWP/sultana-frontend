@@ -114,8 +114,11 @@
   #feature-container{
     max-height: 821px;
     max-width: 1140px;
+    /*width: 100%;*/
+    min-width: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
   }
 
   #app {
@@ -157,8 +160,9 @@
   .grid{
     display: grid;
     height: auto;
-    width: 100%;
     padding: 0;
+    /*margin: 0;*/
+    min-width: 100%;
     grid-template-columns: auto;
     /*grid-template-rows: 821px;*/
     grid-template-rows: auto;
@@ -168,6 +172,7 @@
     grid-row-start: 1;
     grid-column-start: 1;
     height: auto;
+    width: 100%;
   }
 
   #logo{
@@ -319,6 +324,7 @@
   .row{
     margin-top: 20px;
     padding: 0;
+    min-width: 100%;
   }
   .row:after{
     content: "";
