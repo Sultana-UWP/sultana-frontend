@@ -40,7 +40,7 @@
     #search{
         z-index: 1;
         text-align: center;
-        margin: 4% 0;
+        margin: auto 0;
     }
 
     #search_container{

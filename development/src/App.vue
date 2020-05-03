@@ -13,9 +13,9 @@
           <v-container id="nav">
             <v-container class="desktop-view">
               <v-container id="nav-buttons">
-                <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
                 <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/search">Search</router-link></v-btn>
                 <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/about">About</router-link></v-btn>
+                <v-btn color="rgba(0, 0, 0, 0)"><router-link to="/">Home</router-link></v-btn>
               </v-container>
             </v-container>
             <v-container class="mobile-view">
@@ -80,8 +80,6 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Open+Sans&display=swap');
 
-
-
   a{
     text-decoration: none;
     /*color: rgb(194,172,181);*/
@@ -89,7 +87,11 @@
   }
 
   #nav-buttons{
-      margin: 12% 20px 0 0;
+    margin: 12% 40px 0 0;
+    width: 53%;
+    padding: 0;
+    overflow: hidden;
+    float: right;
   }
 
   #nav-buttons > *{
@@ -138,8 +140,9 @@
 
   #content-container{
     max-width: 1140px;
-    /*padding: 0;*/
-    padding: 0 20px 0 0;
+    padding: 0;
+    /*padding: 0 20px 0 0;*/
+    width: 90%;
   }
 
   #feature{
@@ -147,6 +150,7 @@
     flex-flow: row nowrap;
     z-index: 0;
     /*margin: 0;*/
+    align-content: center;
   }
 
   #wrapper {
@@ -222,7 +226,7 @@
 
   #bottom{
     margin-top: 20px;
-    padding-top: 40px;
+    padding: 40px 0 0 0;
     /*background-color: rgb(41,53,69);*/
     background-color: rgb(40, 51, 67);
     overflow: hidden;
@@ -248,6 +252,7 @@
   #bottom-buttons{
     float: right;
     width: 72%;
+    padding: 0;
   }
 
   #bottom-buttons > *{
@@ -275,6 +280,7 @@
   /*  padding: 0;*/
   /*}*/
 
+
   @media screen and (max-width: 800px){
     .columnLarge, .columnSmall{
       width: 100%;
@@ -294,15 +300,21 @@
     }
 
     #content-container{
-      padding: 0;
+      width: 90%;
     }
 
     #fb, #bottom-buttons, #bottom-buttons > *{
       width: 100%;
       height: auto;
       min-height: 60px;
-      margin: 15px 0;
+      margin: 15px auto;
+        float: none;
     }
+
+    #fb{
+        width: 50%;
+    }
+
   }
 
   .desktop-view{
@@ -341,12 +353,15 @@
 
   .mobile-menu > *{
     text-decoration: none;
-    font-size: 1.5rem;
     display: block;
     margin: 15px 0;
     /*padding: 15px 0;*/
     height: 60px !important;
     width: 100%;
+  }
+
+  .mobile-menu > * > *{
+    font-size: 24px;
   }
 
   /*ul.mobile-menu .burger{*/
