@@ -4,7 +4,7 @@
             <!--      <Download/>-->
             <!--      <Upload/>-->
             <!--      <AddPerson/>-->
-            <Get/>
+            <Database/>
             <!--      <GetAllPeople/>-->
         </v-content>
     </v-app>
@@ -13,7 +13,7 @@
 <script>
     // import AddPerson from './components/AddPerson';
     // import GetAllPeople from './components/GetAllPeople';
-    import Get from './Get';
+    import Database from './Database';
     // import Upload from './components/Upload';
     // import Download from './components/Download';
 
@@ -36,7 +36,7 @@
         components: {
             // AddPerson,
             // GetAllPeople,
-            Get
+            Database
             // Upload,
             // Download
         },

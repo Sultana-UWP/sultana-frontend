@@ -226,7 +226,7 @@
 
   #bottom{
     margin-top: 20px;
-    padding: 40px 0 0 0;
+    padding: 40px 0 120px 0;
     /*background-color: rgb(41,53,69);*/
     background-color: rgb(40, 51, 67);
     overflow: hidden;
@@ -241,22 +241,28 @@
 
   #fb{
     margin: 0 0 0 20px;
-    height: 23%;
-    width: 23%;
+    height: auto;
+    width: 19%;
     padding: 1%;
     background-color: white;
     border-radius: 15px;
     float: left;
   }
 
+  #fb > *{
+    margin-top: 3%;
+  }
+
   #bottom-buttons{
     float: right;
     width: 72%;
     padding: 0;
+    margin-top: 2%;
   }
 
   #bottom-buttons > *{
-    width: 33.33%;
+    width: 30%;
+    margin-left: 3%;
   }
 
   .columnLarge{

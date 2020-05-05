@@ -1,11 +1,12 @@
 <template>
-    <v-card>
-<!--        <v-card-title primary-title class="justify-center">-->
+    <v-card class="ml-2 mr-2">
+        <v-card-title primary-title class="justify-center">
         <h1>Multiple Search</h1>
-<!--            <div class="flex-grow-1"/>-->
+            <div class="flex-grow-1"/>
             <v-container id="search-form">
                 <v-container id="fname">
                     <v-text-field
+                            class="form-item"
                             v-model="firstname"
                             v-on:keyup.enter="searchFirstName"
                             label="First Name"
@@ -13,6 +14,7 @@
                 </v-container>
                 <v-container id="lname">
                     <v-text-field
+                            class="form-item"
                             v-model="lastname"
                             v-on:keyup.enter="searchLastName"
                             label="Last Name"
@@ -27,6 +29,7 @@
                 </v-container>
                 <v-container id="state">
                     <v-select
+                            class="form-item"
                             @input="searchState"
                             v-model="state"
                             :items="stateSelect"
@@ -34,6 +37,7 @@
                 </v-container>
                 <v-container id="company">
                     <v-select
+                            class="form-item"
                             @input="searchCompany"
                             v-model="company"
                             :items="companySelect"
@@ -41,13 +45,14 @@
                 </v-container>
                 <v-container id="prison">
                     <v-select
+                            class="form-item"
                             @input="searchPrison"
                             v-model="prison"
                             :items="prisonSelect"
                             placeholder="Prison"/>
                 </v-container>
             </v-container>
-<!--        </v-card-title>-->
+        </v-card-title>
         <v-container id="data-table">
             <v-data-table
                     :headers="headers"
@@ -337,13 +342,16 @@
     #search-form{
         width: 100%;
         padding: 0;
-        margin: 0 20px;
         height: 200px;
     }
 
     #search-form > *{
         float: left;
         padding: 0;
+    }
+
+    .v-input{
+        color: blue !important;
     }
 
     #fname{
