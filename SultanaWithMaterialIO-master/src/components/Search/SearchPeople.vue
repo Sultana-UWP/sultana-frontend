@@ -673,4 +673,8 @@ export default {
     .v-data-footer, table{
         background: #ebfffe;
     }
+
+    tbody tr:hover {
+        background: #e0f1ff !important;
+    }
 </style>
